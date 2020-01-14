@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Drive Assist</string>
+    <string name="dash_title">Your Dashboard - i20</string>
+    <string name="view_car">View Car</string>
+    <string name="share">Share</string>
+    <string name="todo">TODO</string>
+    <string name="login_background">login background</string>
+    <string name="title_activity_view_car">view_car</string>
+    <string name="o_d_o">O.D.O</string>
+    <string name="time">Time</string>
+    <string name="title_activity_find_car">Map</string>
+
+</resources>

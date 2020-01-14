@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "909764385495",
+    "firebase_url": "https://driveassist-33377.firebaseio.com",
+    "project_id": "driveassist-33377",
+    "storage_bucket": "driveassist-33377.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909764385495:android:e65806fa57bc4d019aae92",
+        "android_client_info": {
+          "package_name": "com.cipher.driver_assist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909764385495-s8s41s4mge59jvlbp67n4uh7iearbmnv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cipher.driver_assist",
+            "certificate_hash": "7ce4c36f12557948ba3841a3b95bda1d10db654a"
+          }
+        },
+        {
+          "client_id": "909764385495-b2jg55lhde4b5smr85k43tl49so45eh2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyAyQdoTxfY1p4Zn8hLyNXuDy0WuulHps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "909764385495-b2jg55lhde4b5smr85k43tl49so45eh2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
