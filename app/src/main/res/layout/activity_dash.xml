@@ -186,7 +186,7 @@
             <ImageView
                 style="@style/parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/ic_login_bk"
+                android:background="@drawable/ic_dash_bk"
                 android:contentDescription="@string/login_background" />
 
         </LinearLayout>

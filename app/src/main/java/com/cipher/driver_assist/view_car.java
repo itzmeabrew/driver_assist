@@ -20,7 +20,7 @@ import android.widget.TextView;
 
 public class view_car extends AppCompatActivity
 {
-    private TextView odo,time,miles,reg,lat,lng,alt,name;
+    private TextView odo,cap,miles,reg,mdl,eng,hp,name,time,fuel,age;
     FirebaseFirestore db=FirebaseFirestore.getInstance();
 
     private void getData()
@@ -37,6 +37,16 @@ public class view_car extends AppCompatActivity
                         {
                             name.setText(document.getString("owner"));
                             reg.setText(document.getString("reg_no"));
+                            odo.setText(document.getDouble("odo")+" KM");
+                            cap.setText(document.getDouble("cap")+"L");
+                            miles.setText(String.valueOf(document.getDouble("milage")));
+                            mdl.setText(document.getString("model_name"));
+                            eng.setText(document.getString("eng_type"));
+                            hp.setText(document.getDouble("hp")+" KW");
+                            time.setText("4:30");
+                            fuel.setText(document.getString("fuel_type"));
+                            age.setText(String.valueOf(document.getDouble("age")));
+
                             Log.d("AX", document.getId() + " => " + document.getData());
                         }
                         catch (NullPointerException e)
@@ -62,12 +72,15 @@ public class view_car extends AppCompatActivity
 
         odo=findViewById(R.id.vodo);
         time=findViewById(R.id.vtime);
-        miles=findViewById(R.id.vmiles);
+        miles=findViewById(R.id.vmilage);
         reg=findViewById(R.id.vreg);
-        lat=findViewById(R.id.vlat);
-        lng=findViewById(R.id.vlng);
+        hp=findViewById(R.id.vpwr);
+        eng=findViewById(R.id.veng);
         name=findViewById(R.id.vname);
-        alt=findViewById(R.id.valt);
+        mdl=findViewById(R.id.vmdl);
+        fuel=findViewById(R.id.vfuel);
+        cap=findViewById(R.id.vcap);
+        age=findViewById(R.id.vage);
 
     }
 

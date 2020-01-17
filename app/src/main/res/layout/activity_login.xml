@@ -36,10 +36,11 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:orientation="vertical"
-                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginLeft="30dp">
 
@@ -48,7 +49,7 @@
                     style="@style/headerText"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="15dp"
                     android:fontFamily="@font/arciform"
                     android:text="@string/app_name"
                     android:textSize="40sp" />
@@ -57,9 +58,22 @@
                     layout="@layout/layout_login"/>
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="460dp"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:drawablePadding="5dp"
+                    android:text="Login with Touch ID"
+                    android:drawableBottom="@drawable/fpg" />
+            </LinearLayout>
 
         </RelativeLayout>
-
     </ScrollView>
-
 </RelativeLayout>
