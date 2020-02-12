@@ -84,7 +84,7 @@ public class notification_handler extends Service
 
         get_emergency_state(notifyIntent);
 
-        Toast.makeText(this,"service started",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Service started",Toast.LENGTH_SHORT).show();
         return START_STICKY;
     }
 

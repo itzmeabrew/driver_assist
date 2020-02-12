@@ -1,29 +1,28 @@
 package com.cipher.driver_assist;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class dash extends AppCompatActivity
 {
-    private CardView BviewCar,BEmergency,Bmap;
+    private CardView BviewCar,BEmergency,Bmap,BCamera;
     FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     private void emergency_mode()
     {
-        DatabaseReference intr=db.getReference("int");
+        DatabaseReference intr=db.getReference("ath");
         intr.setValue(true);
-        Toast.makeText(this,"Emergency mode activated",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Emergency mode activated-Anti Theft",Toast.LENGTH_SHORT).show();
     }
 
     private void show_promt()
@@ -52,6 +51,7 @@ public class dash extends AppCompatActivity
         BviewCar=findViewById(R.id.dash_viewcar);
         BEmergency=findViewById(R.id.dash_emer_mode);
         Bmap=findViewById(R.id.dash_maps);
+        BCamera=findViewById(R.id.bcam);
 
     }
 
@@ -83,6 +83,15 @@ public class dash extends AppCompatActivity
             {
                 Intent fcar=new Intent(dash.this,findCar.class);
                 startActivity(fcar);
+            }
+        });
+
+        BCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent=new Intent(dash.this,image_loader.class);
+                startActivity(intent);
             }
         });
     }

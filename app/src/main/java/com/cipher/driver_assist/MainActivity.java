@@ -12,7 +12,6 @@ import androidx.core.app.ActivityCompat;
 
 public class MainActivity extends AppCompatActivity
 {
-    private final int time_out = 4000;
 
     private void get_permssion()
     {
@@ -35,6 +34,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        final int time_out = 4000;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -54,4 +54,9 @@ public class MainActivity extends AppCompatActivity
         startService(intent);
     }
 
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+    }
 }

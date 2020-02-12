@@ -1,20 +1,70 @@
 package com.cipher.driver_assist;
 
-import androidx.fragment.app.FragmentActivity;
-
 import android.os.Bundle;
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class findCar extends FragmentActivity implements OnMapReadyCallback
 {
 
     private GoogleMap mMap;
+    private double slat=9.510,slng=76.55;
+
+    private void get_LatLng()
+    {
+        FirebaseDatabase db  = FirebaseDatabase.getInstance();
+        DatabaseReference mlat = db.getReference("lat");
+        mlat.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                String value=dataSnapshot.getValue(String.class);
+                if(!value.equals("0"))
+                {
+                    slat = Float.valueOf(value);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError)
+            {
+                Log.d("sx","Error");
+            }
+        });
+
+        DatabaseReference mlng=db.getReference("lng");
+        mlng.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String value=dataSnapshot.getValue(String.class);
+                if(!value.equals("0"))
+                {
+                    slng = Float.valueOf(value);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError)
+            {
+                Log.d("sa","Error");
+            }
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -36,14 +86,19 @@ public class findCar extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
+
     @Override
     public void onMapReady(GoogleMap googleMap)
     {
         mMap = googleMap;
+        final float zoom=  16.0f;
+        get_LatLng();
+        Log.d("loc",slat+" "+slng);
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(9.318, 76.61);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng marker = new LatLng(slat, slng);
+        mMap.addMarker(new MarkerOptions().position(marker).title("Marker near car").icon(BitmapDescriptorFactory.fromResource(R.drawable.icons8_location_off_80)));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker,zoom));
     }
 }
