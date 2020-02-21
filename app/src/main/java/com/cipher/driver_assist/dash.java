@@ -90,7 +90,7 @@ public class dash extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent intent=new Intent(dash.this,image_loader.class);
+                Intent intent=new Intent(dash.this, camera_loader.class);
                 startActivity(intent);
             }
         });

@@ -22,6 +22,10 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(this, "Please enable the necessary permission", Toast.LENGTH_SHORT).show();
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.USE_FINGERPRINT}, perm);
         }
+        else if(ActivityCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE)!=PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},perm);
+        }
         else
         {
             Toast.makeText(getApplicationContext(), "All permissions granted", Toast.LENGTH_SHORT).show();
